@@ -684,8 +684,8 @@ export default function Home() {
                       Adresa
                     </div>
                     <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}>
-                      Václavské náměstí 47<br />
-                      110 00 Praha 1 – Nové Město
+                      Potoční 1091<br />
+                      Frýdek-Místek 738 01
                     </p>
                   </div>
                 </div>
@@ -705,11 +705,11 @@ export default function Home() {
                       Telefon
                     </div>
                     <a
-                      href="tel:+420800123456"
+                      href="tel:+420603442763"
                       style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}
                       className="hover:text-white transition-colors"
                     >
-                      +420 800 123 456
+                      +420 603 442 763
                     </a>
                     <p style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem", marginTop: "0.2rem" }}>
                       Po–Pá 8:00–18:00
@@ -732,11 +732,11 @@ export default function Home() {
                       E-mail
                     </div>
                     <a
-                      href="mailto:info@realitypraha.cz"
+                      href="mailto:info@rpluspreal.cz"
                       style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}
                       className="hover:text-white transition-colors"
                     >
-                      info@realitypraha.cz
+                      info@rpluspreal.cz
                     </a>
                   </div>
                 </div>
