@@ -60,44 +60,28 @@ const SERVICES = [
 
 const AGENTS = [
   {
-    name: "Ing. Petra Nováková",
-    role: "Vedoucí makléřka",
-    phone: "+420 602 111 222",
-    email: "petra.novakova@realitypraha.cz",
-    specialization: "Luxusní rezidenční nemovitosti",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Mgr. Tomáš Kovář",
+    name: "Ing. Vít Hovjadský",
     role: "Realitní makléř",
-    phone: "+420 603 333 444",
-    email: "tomas.kovar@realitypraha.cz",
-    specialization: "Komerční nemovitosti & investice",
+    phone: "+420 603 442 763",
+    email: "hovjadsky@gmail.com",
+    specialization: "Prodej a pronájem nemovitostí",
     avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
   },
   {
-    name: "Bc. Jana Horáková",
+    name: "Ing. Petra Koudelková",
     role: "Realitní makléřka",
-    phone: "+420 604 555 666",
-    email: "jana.horakova@realitypraha.cz",
-    specialization: "Rezidenční byty Praha 1–6",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Bc. Martin Blažek",
-    role: "Realitní makléř",
-    phone: "+420 605 777 888",
-    email: "martin.blazek@realitypraha.cz",
-    specialization: "Rodinné domy & pozemky",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    phone: "+420 704 361 302",
+    email: "koudelkova@gmail.com",
+    specialization: "Prodej a pronájem nemovitostí",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
   },
 ];
 
 const STATS = [
-  { value: "1 200+", label: "Prodaných nemovitostí" },
-  { value: "15", label: "Let na trhu" },
   { value: "98 %", label: "Spokojených klientů" },
-  { value: "4", label: "Zkušení makléři" },
+  { value: "2", label: "Zkušení makléři" },
+  { value: "100 %", label: "Transparentní jednání" },
+  { value: "24/7", label: "Dostupnost pro klienty" },
 ];
 
 function useScrollAnimation() {
@@ -163,7 +147,7 @@ export default function Home() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "1rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.2rem", color: "white", letterSpacing: "0.05em" }}>
-              Reality Praha
+              RplusP real s.r.o.
             </span>
           </div>
 
@@ -245,7 +229,7 @@ export default function Home() {
                 className="inline-block text-xs font-medium tracking-widest uppercase mb-6"
                 style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
               >
-                Prémiová realitní kancelář v Praze
+                Realitní kancelář Frýdek-Místek
               </span>
             </div>
             <h1
@@ -350,7 +334,7 @@ export default function Home() {
                 <span style={{ fontStyle: "italic", fontWeight: 400 }}>s osobním přístupem</span>
               </h2>
               <p className="mb-4 leading-relaxed" style={{ color: "oklch(0.38 0.02 240)", fontSize: "1rem" }}>
-                Reality Praha je prémiová realitní kancelář působící na pražském trhu od roku 2009. Specializujeme se na prodej, koupi a pronájem rezidenčních i komerčních nemovitostí v Praze a Středočeském kraji.
+                RplusP real s.r.o. je realitní kancelář sídlící ve Frýdku-Místku. Specializujeme se na prodej, koupi a pronájem rezidenčních i komerčních nemovitostí v regionu Moravskoslezského kraje.
               </p>
               <p className="mb-8 leading-relaxed" style={{ color: "oklch(0.38 0.02 240)", fontSize: "1rem" }}>
                 Náš tým zkušených makléřů vám poskytne individuální péči a odborné poradenství v každém kroku realitní transakce. Věříme, že každý klient si zaslouží transparentní a profesionální přístup.
@@ -367,7 +351,7 @@ export default function Home() {
               >
                 <img
                   src={TEAM_BG}
-                  alt="Kancelář Reality Praha"
+                  alt="Kancelář RplusP real s.r.o."
                   className="w-full h-80 object-cover"
                 />
                 <div
@@ -389,7 +373,7 @@ export default function Home() {
                     lineHeight: 1,
                   }}
                 >
-                  15+
+                  98 %
                 </div>
                 <div
                   style={{
@@ -401,7 +385,7 @@ export default function Home() {
                     marginTop: "0.25rem",
                   }}
                 >
-                  Let zkušeností
+                  Spokojených klientů
                 </div>
               </div>
             </AnimatedSection>
@@ -883,11 +867,11 @@ export default function Home() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.8rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1rem", color: "white" }}>
-              Reality Praha
+              RplusP real s.r.o.
             </span>
           </div>
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
-            © 2025 Reality Praha s.r.o. | IČO: 123 45 678 | Všechna práva vyhrazena
+            © 2025 RplusP real s.r.o. | Všechna práva vyhrazena
           </p>
           <div className="flex gap-6">
             {["Ochrana osobních údajů", "Podmínky"].map((item) => (

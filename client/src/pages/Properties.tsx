@@ -37,8 +37,8 @@ const PROPERTIES = [
     badge: "Nová nabídka",
     badgeColor: "oklch(0.72 0.12 75)",
     description: "Reprezentativní vila s bazénem a udržovanou zahradou, 380 m² obytné plochy, garáž pro 2 auta.",
-    agent: "Ing. Petra Nováková",
-    agentPhone: "+420 602 111 222",
+    agent: "Ing. Vít Hovjadský",
+    agentPhone: "+420 603 442 763",
   },
   {
     id: 2,
@@ -54,8 +54,8 @@ const PROPERTIES = [
     badge: "Exkluzivní",
     badgeColor: "oklch(0.18 0.04 240)",
     description: "Unikátní penthouse s panoramatickým výhledem na Prahu, terasa 45 m², luxusní vybavení.",
-    agent: "Bc. Jana Horáková",
-    agentPhone: "+420 604 555 666",
+    agent: "Ing. Petra Koudelková",
+    agentPhone: "+420 704 361 302",
   },
   {
     id: 3,
@@ -71,8 +71,8 @@ const PROPERTIES = [
     badge: null,
     badgeColor: "",
     description: "Novostavba rodinného domu, 240 m², energetická třída A, velká zahrada 800 m².",
-    agent: "Bc. Martin Blažek",
-    agentPhone: "+420 605 777 888",
+    agent: "Ing. Vít Hovjadský",
+    agentPhone: "+420 603 442 763",
   },
   {
     id: 4,
@@ -88,8 +88,8 @@ const PROPERTIES = [
     badge: null,
     badgeColor: "",
     description: "Prostorný byt v historickém centru, po kompletní rekonstrukci, vysoké stropy, parkety.",
-    agent: "Bc. Jana Horáková",
-    agentPhone: "+420 604 555 666",
+    agent: "Ing. Petra Koudelková",
+    agentPhone: "+420 704 361 302",
   },
   {
     id: 5,
@@ -105,8 +105,8 @@ const PROPERTIES = [
     badge: "Volné ihned",
     badgeColor: "oklch(0.55 0.15 145)",
     description: "Moderní kancelářský prostor v prestižní lokalitě, open space + 4 kanceláře, recepce.",
-    agent: "Mgr. Tomáš Kovář",
-    agentPhone: "+420 603 333 444",
+    agent: "Ing. Vít Hovjadský",
+    agentPhone: "+420 603 442 763",
   },
   {
     id: 6,
@@ -122,8 +122,8 @@ const PROPERTIES = [
     badge: null,
     badgeColor: "",
     description: "Útulný byt v klidné části Dejvic, zrekonstruovaná kuchyně, balkon, sklep.",
-    agent: "Bc. Jana Horáková",
-    agentPhone: "+420 604 555 666",
+    agent: "Ing. Petra Koudelková",
+    agentPhone: "+420 704 361 302",
   },
   {
     id: 7,
@@ -139,8 +139,8 @@ const PROPERTIES = [
     badge: "Investiční příležitost",
     badgeColor: "oklch(0.45 0.18 260)",
     description: "Výnosný bytový dům se 6 byty a 2 komerčními prostory, plně obsazeno, výnos 5,2 % p.a.",
-    agent: "Mgr. Tomáš Kovář",
-    agentPhone: "+420 603 333 444",
+    agent: "Ing. Vít Hovjadský",
+    agentPhone: "+420 603 442 763",
   },
   {
     id: 8,
@@ -156,8 +156,8 @@ const PROPERTIES = [
     badge: null,
     badgeColor: "",
     description: "Rodinný dům v klidné lokalitě u Prahy, zahrada 600 m², garáž, sklep, podkroví.",
-    agent: "Bc. Martin Blažek",
-    agentPhone: "+420 605 777 888",
+    agent: "Ing. Petra Koudelková",
+    agentPhone: "+420 704 361 302",
   },
 ];
 
@@ -206,16 +206,16 @@ export default function Properties() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.9rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.1rem", color: "white" }}>
-              Reality Praha
+              RplusP real s.r.o.
             </span>
           </div>
           <a
-            href="tel:+420800123456"
+            href="tel:+420603442763"
             className="hidden md:flex items-center gap-2 text-sm hover:text-white transition-colors"
             style={{ color: "rgba(255,255,255,0.7)", fontFamily: "'Outfit', sans-serif" }}
           >
             <Phone size={14} style={{ color: "oklch(0.72 0.12 75)" }} />
-            +420 800 123 456
+            +420 603 442 763
           </a>
         </div>
       </nav>
@@ -644,11 +644,11 @@ export default function Properties() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.8rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1rem", color: "white" }}>
-              Reality Praha
+              RplusP real s.r.o.
             </span>
           </div>
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
-            © 2025 Reality Praha s.r.o. | Všechna práva vyhrazena
+            © 2025 RplusP real s.r.o. | Všechna práva vyhrazena
           </p>
           <Link href="/">
             <button
