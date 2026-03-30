@@ -43,8 +43,8 @@ const SERVICES = [
   },
   {
     icon: TrendingUp,
-    title: "Investiční poradenství",
-    desc: "Analyzujeme trh a doporučíme nejvýnosnější investiční příležitosti v oblasti nemovitostí v Praze a okolí.",
+    title: "Odkup nemovitostí",
+    desc: "Vykoupíme vaši nemovitost za nejlepší možnou cenu. Rychlé jednání, výplata peněz v nejkratší možné době – bez zbytečných průtahů.",
   },
   {
     icon: Shield,
