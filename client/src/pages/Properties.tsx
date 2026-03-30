@@ -3,6 +3,9 @@
  * Design: Modern Geometric Prestige
  * Colors: Navy #0D1B2A | Gold #D4A843
  * Fonts: Cormorant Garamond (headings) | Outfit (body)
+ *
+ * Nemovitosti jsou načítány z Markdown souborů v src/content/nemovitosti/
+ * Správa přes Decap CMS admin panel na /admin
  */
 
 import { useState } from "react";
@@ -16,162 +19,37 @@ import {
   Search,
   SlidersHorizontal,
   X,
+  Mail,
 } from "lucide-react";
+import { useProperties, type Property } from "@/hooks/useProperties";
 
 const PROPERTIES_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663470378961/YJPp8FK3JAb3Rh4YUTwsLp/properties-hero-bMLcieVpT2hZgyG84PeEP3.webp";
-const CARD1 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663470378961/YJPp8FK3JAb3Rh4YUTwsLp/property-card-1-7KDphvxP8M2bZThVe2GX2j.webp";
-const CARD2 = "https://d2xsxph8kpxj0f.cloudfront.net/310519663470378961/YJPp8FK3JAb3Rh4YUTwsLp/property-card-2-fL9WkJyph9b2XrxpXpueKJ.webp";
 
-const PROPERTIES = [
-  {
-    id: 1,
-    title: "Luxusní vila s bazénem",
-    location: "Praha – západ, Průhonice",
-    price: "28 500 000 Kč",
-    priceNum: 28500000,
-    type: "Dům",
-    status: "Prodej",
-    rooms: 6,
-    area: 380,
-    image: CARD1,
-    badge: "Nová nabídka",
-    badgeColor: "oklch(0.72 0.12 75)",
-    description: "Reprezentativní vila s bazénem a udržovanou zahradou, 380 m² obytné plochy, garáž pro 2 auta.",
-    agent: "Ing. Vít Hovjadský",
-    agentPhone: "+420 603 442 763",
-  },
-  {
-    id: 2,
-    title: "Penthouse s výhledem na Prahu",
-    location: "Praha 2 – Vinohrady",
-    price: "19 900 000 Kč",
-    priceNum: 19900000,
-    type: "Byt",
-    status: "Prodej",
-    rooms: 4,
-    area: 165,
-    image: CARD2,
-    badge: "Exkluzivní",
-    badgeColor: "oklch(0.18 0.04 240)",
-    description: "Unikátní penthouse s panoramatickým výhledem na Prahu, terasa 45 m², luxusní vybavení.",
-    agent: "Ing. Petra Koudelková",
-    agentPhone: "+420 704 361 302",
-  },
-  {
-    id: 3,
-    title: "Moderní rodinný dům",
-    location: "Praha – východ, Říčany",
-    price: "14 200 000 Kč",
-    priceNum: 14200000,
-    type: "Dům",
-    status: "Prodej",
-    rooms: 5,
-    area: 240,
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
-    badge: null,
-    badgeColor: "",
-    description: "Novostavba rodinného domu, 240 m², energetická třída A, velká zahrada 800 m².",
-    agent: "Ing. Vít Hovjadský",
-    agentPhone: "+420 603 442 763",
-  },
-  {
-    id: 4,
-    title: "Byt 3+kk v centru Prahy",
-    location: "Praha 1 – Staré Město",
-    price: "12 500 000 Kč",
-    priceNum: 12500000,
-    type: "Byt",
-    status: "Prodej",
-    rooms: 3,
-    area: 98,
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop",
-    badge: null,
-    badgeColor: "",
-    description: "Prostorný byt v historickém centru, po kompletní rekonstrukci, vysoké stropy, parkety.",
-    agent: "Ing. Petra Koudelková",
-    agentPhone: "+420 704 361 302",
-  },
-  {
-    id: 5,
-    title: "Kancelářský prostor",
-    location: "Praha 4 – Pankrác",
-    price: "85 000 Kč/měs.",
-    priceNum: 85000,
-    type: "Komerční",
-    status: "Pronájem",
-    rooms: 0,
-    area: 320,
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-    badge: "Volné ihned",
-    badgeColor: "oklch(0.55 0.15 145)",
-    description: "Moderní kancelářský prostor v prestižní lokalitě, open space + 4 kanceláře, recepce.",
-    agent: "Ing. Vít Hovjadský",
-    agentPhone: "+420 603 442 763",
-  },
-  {
-    id: 6,
-    title: "Byt 2+kk k pronájmu",
-    location: "Praha 6 – Dejvice",
-    price: "28 000 Kč/měs.",
-    priceNum: 28000,
-    type: "Byt",
-    status: "Pronájem",
-    rooms: 2,
-    area: 62,
-    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop",
-    badge: null,
-    badgeColor: "",
-    description: "Útulný byt v klidné části Dejvic, zrekonstruovaná kuchyně, balkon, sklep.",
-    agent: "Ing. Petra Koudelková",
-    agentPhone: "+420 704 361 302",
-  },
-  {
-    id: 7,
-    title: "Investiční bytový dům",
-    location: "Praha 3 – Žižkov",
-    price: "42 000 000 Kč",
-    priceNum: 42000000,
-    type: "Komerční",
-    status: "Prodej",
-    rooms: 12,
-    area: 860,
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop",
-    badge: "Investiční příležitost",
-    badgeColor: "oklch(0.45 0.18 260)",
-    description: "Výnosný bytový dům se 6 byty a 2 komerčními prostory, plně obsazeno, výnos 5,2 % p.a.",
-    agent: "Ing. Vít Hovjadský",
-    agentPhone: "+420 603 442 763",
-  },
-  {
-    id: 8,
-    title: "Rodinný dům se zahradou",
-    location: "Praha – západ, Černošice",
-    price: "9 800 000 Kč",
-    priceNum: 9800000,
-    type: "Dům",
-    status: "Prodej",
-    rooms: 4,
-    area: 180,
-    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&h=600&fit=crop",
-    badge: null,
-    badgeColor: "",
-    description: "Rodinný dům v klidné lokalitě u Prahy, zahrada 600 m², garáž, sklep, podkroví.",
-    agent: "Ing. Petra Koudelková",
-    agentPhone: "+420 704 361 302",
-  },
-];
+const BADGE_COLORS: Record<string, string> = {
+  "Nová nabídka": "oklch(0.72 0.12 75)",
+  "Exkluzivní": "oklch(0.18 0.04 240)",
+  "Volné ihned": "oklch(0.55 0.15 145)",
+  "Investiční příležitost": "oklch(0.45 0.18 260)",
+  "Snížená cena": "oklch(0.55 0.2 30)",
+};
 
-const TYPES = ["Vše", "Byt", "Dům", "Komerční"];
+const AGENT_EMAILS: Record<string, string> = {
+  "Ing. Vít Hovjadský": "hovjadsky@gmail.com",
+  "Ing. Petra Koudelková": "koudelkova@gmail.com",
+};
+
+const TYPES = ["Vše", "Byty", "Domy", "Komerční", "Pozemky"];
 const STATUSES = ["Vše", "Prodej", "Pronájem"];
 
 export default function Properties() {
+  const properties = useProperties();
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("Vše");
   const [statusFilter, setStatusFilter] = useState("Vše");
   const [showFilters, setShowFilters] = useState(false);
-  const [selected, setSelected] = useState<(typeof PROPERTIES)[0] | null>(null);
+  const [selected, setSelected] = useState<Property | null>(null);
 
-  const filtered = PROPERTIES.filter((p) => {
+  const filtered = properties.filter((p) => {
     const matchSearch =
       p.title.toLowerCase().includes(search.toLowerCase()) ||
       p.location.toLowerCase().includes(search.toLowerCase());
@@ -252,8 +130,8 @@ export default function Properties() {
           >
             Nabídka nemovitostí
           </h1>
-          <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Outfit', sans-serif", fontSize: "1rem", maxWidth: "500px" }}>
-            Vybírejte z naší pečlivě sestavené nabídky prémiových nemovitostí v Praze a okolí.
+          <p style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Outfit', sans-serif", fontSize: "1rem", maxWidth: "480px" }}>
+            Prohlédněte si naši aktuální nabídku nemovitostí ve Frýdku-Místku a okolí.
           </p>
         </div>
       </section>
@@ -263,145 +141,196 @@ export default function Properties() {
         className="sticky top-16 z-40 py-4"
         style={{
           background: "white",
-          borderBottom: "1px solid oklch(0.88 0.01 240)",
+          borderBottom: "1px solid oklch(0.92 0.004 286.32)",
           boxShadow: "0 2px 12px rgba(13,27,42,0.06)",
         }}
       >
         <div className="container">
-          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+          <div className="flex flex-col md:flex-row gap-3 items-start md:items-center">
             {/* Search */}
             <div className="relative flex-1 max-w-sm">
-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "oklch(0.52 0.02 240)" }} />
+              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "oklch(0.55 0.016 285.938)" }} />
               <input
                 type="text"
-                placeholder="Hledat nemovitost nebo lokalitu..."
+                placeholder="Hledat nemovitost nebo lokalitu…"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="w-full pl-9 pr-4 py-2.5 text-sm outline-none transition-all"
                 style={{
-                  border: "1px solid oklch(0.88 0.01 240)",
+                  border: "1px solid oklch(0.92 0.004 286.32)",
                   fontFamily: "'Outfit', sans-serif",
-                  color: "oklch(0.18 0.04 240)",
-                  background: "oklch(0.97 0.005 240)",
+                  color: "oklch(0.235 0.015 65)",
                 }}
                 onFocus={(e) => (e.target.style.borderColor = "oklch(0.72 0.12 75)")}
-                onBlur={(e) => (e.target.style.borderColor = "oklch(0.88 0.01 240)")}
+                onBlur={(e) => (e.target.style.borderColor = "oklch(0.92 0.004 286.32)")}
               />
             </div>
 
-            {/* Filter toggle (mobile) */}
+            {/* Filter toggle */}
             <button
-              className="md:hidden flex items-center gap-2 text-sm px-4 py-2.5"
-              style={{
-                border: "1px solid oklch(0.88 0.01 240)",
-                fontFamily: "'Outfit', sans-serif",
-                color: "oklch(0.38 0.02 240)",
-              }}
               onClick={() => setShowFilters(!showFilters)}
+              className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all"
+              style={{
+                border: showFilters ? "1px solid oklch(0.72 0.12 75)" : "1px solid oklch(0.92 0.004 286.32)",
+                background: showFilters ? "rgba(212,168,67,0.08)" : "transparent",
+                color: showFilters ? "oklch(0.55 0.12 75)" : "oklch(0.4 0.015 65)",
+                fontFamily: "'Outfit', sans-serif",
+              }}
             >
-              <SlidersHorizontal size={14} />
+              <SlidersHorizontal size={15} />
               Filtry
+              {(typeFilter !== "Vše" || statusFilter !== "Vše") && (
+                <span
+                  className="w-5 h-5 flex items-center justify-center text-xs font-bold"
+                  style={{ background: "oklch(0.72 0.12 75)", color: "oklch(0.18 0.04 240)", borderRadius: "50%" }}
+                >
+                  {[typeFilter !== "Vše", statusFilter !== "Vše"].filter(Boolean).length}
+                </span>
+              )}
             </button>
 
-            {/* Filters */}
-            <div className={`flex flex-wrap gap-3 ${showFilters ? "flex" : "hidden md:flex"}`}>
-              <div className="flex gap-1">
-                {TYPES.map((t) => (
-                  <button
-                    key={t}
-                    onClick={() => setTypeFilter(t)}
-                    className="px-3 py-2 text-xs font-medium tracking-wide transition-all"
-                    style={{
-                      fontFamily: "'Outfit', sans-serif",
-                      background: typeFilter === t ? "oklch(0.18 0.04 240)" : "transparent",
-                      color: typeFilter === t ? "white" : "oklch(0.52 0.02 240)",
-                      border: typeFilter === t ? "1px solid oklch(0.18 0.04 240)" : "1px solid oklch(0.88 0.01 240)",
-                    }}
-                  >
-                    {t}
-                  </button>
-                ))}
-              </div>
-              <div className="flex gap-1">
-                {STATUSES.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => setStatusFilter(s)}
-                    className="px-3 py-2 text-xs font-medium tracking-wide transition-all"
-                    style={{
-                      fontFamily: "'Outfit', sans-serif",
-                      background: statusFilter === s ? "oklch(0.72 0.12 75)" : "transparent",
-                      color: statusFilter === s ? "oklch(0.18 0.04 240)" : "oklch(0.52 0.02 240)",
-                      border: statusFilter === s ? "1px solid oklch(0.72 0.12 75)" : "1px solid oklch(0.88 0.01 240)",
-                    }}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div
-              className="ml-auto text-sm hidden md:block"
-              style={{ color: "oklch(0.52 0.02 240)", fontFamily: "'Outfit', sans-serif" }}
-            >
-              {filtered.length} nemovitostí
-            </div>
+            {/* Result count */}
+            <span className="text-sm ml-auto" style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+              {filtered.length} {filtered.length === 1 ? "nemovitost" : filtered.length < 5 ? "nemovitosti" : "nemovitostí"}
+            </span>
           </div>
+
+          {/* Expanded filters */}
+          {showFilters && (
+            <div className="flex flex-wrap gap-6 mt-4 pt-4" style={{ borderTop: "1px solid oklch(0.92 0.004 286.32)" }}>
+              <div>
+                <div className="text-xs font-medium tracking-wide uppercase mb-2" style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+                  Typ
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {TYPES.map((t) => (
+                    <button
+                      key={t}
+                      onClick={() => setTypeFilter(t)}
+                      className="px-3 py-1.5 text-xs font-medium transition-all"
+                      style={{
+                        border: typeFilter === t ? "1px solid oklch(0.72 0.12 75)" : "1px solid oklch(0.92 0.004 286.32)",
+                        background: typeFilter === t ? "oklch(0.72 0.12 75)" : "transparent",
+                        color: typeFilter === t ? "oklch(0.18 0.04 240)" : "oklch(0.4 0.015 65)",
+                        fontFamily: "'Outfit', sans-serif",
+                        fontWeight: typeFilter === t ? 600 : 400,
+                      }}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div className="text-xs font-medium tracking-wide uppercase mb-2" style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+                  Status
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {STATUSES.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => setStatusFilter(s)}
+                      className="px-3 py-1.5 text-xs font-medium transition-all"
+                      style={{
+                        border: statusFilter === s ? "1px solid oklch(0.72 0.12 75)" : "1px solid oklch(0.92 0.004 286.32)",
+                        background: statusFilter === s ? "oklch(0.72 0.12 75)" : "transparent",
+                        color: statusFilter === s ? "oklch(0.18 0.04 240)" : "oklch(0.4 0.015 65)",
+                        fontFamily: "'Outfit', sans-serif",
+                        fontWeight: statusFilter === s ? 600 : 400,
+                      }}
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {(typeFilter !== "Vše" || statusFilter !== "Vše") && (
+                <button
+                  onClick={() => { setTypeFilter("Vše"); setStatusFilter("Vše"); }}
+                  className="flex items-center gap-1 text-xs self-end mb-1 transition-colors"
+                  style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}
+                >
+                  <X size={12} /> Zrušit filtry
+                </button>
+              )}
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ── PROPERTY GRID ── */}
+      {/* ── GRID ── */}
       <section className="py-12">
         <div className="container">
           {filtered.length === 0 ? (
-            <div className="text-center py-20">
-              <p style={{ color: "oklch(0.52 0.02 240)", fontFamily: "'Outfit', sans-serif", fontSize: "1.1rem" }}>
-                Žádné nemovitosti neodpovídají vašim kritériím.
+            <div className="text-center py-24">
+              <div
+                className="text-5xl mb-4"
+                style={{ fontFamily: "'Cormorant Garamond', serif", color: "oklch(0.72 0.12 75)" }}
+              >
+                ∅
+              </div>
+              <p style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+                Žádné nemovitosti neodpovídají zadaným filtrům.
               </p>
               <button
-                className="mt-4 text-sm underline"
-                style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
                 onClick={() => { setSearch(""); setTypeFilter("Vše"); setStatusFilter("Vše"); }}
+                className="mt-4 text-sm underline transition-colors"
+                style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
               >
-                Zrušit filtry
+                Zobrazit vše
               </button>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filtered.map((p) => (
                 <div
                   key={p.id}
-                  className="property-card bg-white overflow-hidden cursor-pointer"
-                  style={{ boxShadow: "0 2px 16px rgba(13,27,42,0.07)" }}
+                  className="group cursor-pointer transition-all duration-300"
+                  style={{
+                    background: "white",
+                    border: "1px solid oklch(0.92 0.004 286.32)",
+                    boxShadow: "0 2px 8px rgba(13,27,42,0.04)",
+                  }}
                   onClick={() => setSelected(p)}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(13,27,42,0.12)";
+                    (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(212,168,67,0.4)";
+                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 8px rgba(13,27,42,0.04)";
+                    (e.currentTarget as HTMLDivElement).style.borderColor = "oklch(0.92 0.004 286.32)";
+                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                  }}
                 >
                   {/* Image */}
                   <div className="relative overflow-hidden" style={{ height: "200px" }}>
                     <img
                       src={p.image}
                       alt={p.title}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     {/* Status badge */}
                     <div
-                      className="absolute top-3 left-3 px-2 py-1 text-xs font-semibold tracking-wide"
+                      className="absolute top-3 left-3 px-2.5 py-1 text-xs font-semibold"
                       style={{
-                        background: p.status === "Prodej" ? "oklch(0.18 0.04 240)" : "oklch(0.55 0.15 145)",
+                        background: p.status === "Prodej" ? "oklch(0.18 0.04 240)" : "oklch(0.45 0.18 260)",
                         color: "white",
                         fontFamily: "'Outfit', sans-serif",
+                        letterSpacing: "0.04em",
                       }}
                     >
                       {p.status}
                     </div>
-                    {/* Custom badge */}
+                    {/* Optional badge */}
                     {p.badge && (
                       <div
-                        className="absolute top-3 right-3 px-2 py-1 text-xs font-semibold tracking-wide"
+                        className="absolute top-3 right-3 px-2.5 py-1 text-xs font-semibold"
                         style={{
-                          background: p.badgeColor,
-                          color: p.badgeColor === "oklch(0.72 0.12 75)" ? "oklch(0.18 0.04 240)" : "white",
+                          background: BADGE_COLORS[p.badge] ?? "oklch(0.72 0.12 75)",
+                          color: p.badge === "Nová nabídka" || p.badge === "Snížená cena" ? "oklch(0.18 0.04 240)" : "white",
                           fontFamily: "'Outfit', sans-serif",
+                          letterSpacing: "0.04em",
                         }}
                       >
                         {p.badge}
@@ -411,50 +340,58 @@ export default function Properties() {
 
                   {/* Content */}
                   <div className="p-5">
-                    <div
-                      className="flex items-center gap-1 text-xs mb-2"
-                      style={{ color: "oklch(0.52 0.02 240)", fontFamily: "'Outfit', sans-serif" }}
-                    >
-                      <MapPin size={11} />
-                      {p.location}
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <h3
+                        className="leading-tight"
+                        style={{
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontWeight: 600,
+                          fontSize: "1.2rem",
+                          color: "oklch(0.18 0.04 240)",
+                        }}
+                      >
+                        {p.title}
+                      </h3>
                     </div>
-                    <h3
-                      className="mb-2 leading-snug"
-                      style={{
-                        fontFamily: "'Cormorant Garamond', serif",
-                        fontWeight: 600,
-                        fontSize: "1.15rem",
-                        color: "oklch(0.18 0.04 240)",
-                      }}
-                    >
-                      {p.title}
-                    </h3>
 
-                    {/* Stats */}
+                    <div className="flex items-center gap-1.5 mb-3">
+                      <MapPin size={13} style={{ color: "oklch(0.72 0.12 75)", flexShrink: 0 }} />
+                      <span className="text-sm" style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+                        {p.location}
+                      </span>
+                    </div>
+
                     <div className="flex items-center gap-4 mb-4">
                       {p.rooms > 0 && (
-                        <div className="flex items-center gap-1 text-xs" style={{ color: "oklch(0.52 0.02 240)" }}>
-                          <BedDouble size={12} />
-                          <span>{p.rooms} pokoje</span>
+                        <div className="flex items-center gap-1.5">
+                          <BedDouble size={13} style={{ color: "oklch(0.72 0.12 75)" }} />
+                          <span className="text-xs" style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+                            {p.rooms} {p.rooms === 1 ? "pokoj" : p.rooms < 5 ? "pokoje" : "pokojů"}
+                          </span>
                         </div>
                       )}
-                      <div className="flex items-center gap-1 text-xs" style={{ color: "oklch(0.52 0.02 240)" }}>
-                        <Square size={12} />
-                        <span>{p.area} m²</span>
+                      <div className="flex items-center gap-1.5">
+                        <Square size={13} style={{ color: "oklch(0.72 0.12 75)" }} />
+                        <span className="text-xs" style={{ color: "oklch(0.55 0.016 285.938)", fontFamily: "'Outfit', sans-serif" }}>
+                          {p.area} m²
+                        </span>
                       </div>
                     </div>
 
-                    {/* Price */}
-                    <div
-                      className="font-semibold"
-                      style={{
-                        fontFamily: "'Cormorant Garamond', serif",
-                        fontWeight: 700,
-                        fontSize: "1.25rem",
-                        color: "oklch(0.72 0.12 75)",
-                      }}
-                    >
-                      {p.price}
+                    <div className="flex items-center justify-between">
+                      <span
+                        style={{
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontWeight: 700,
+                          fontSize: "1.3rem",
+                          color: "oklch(0.18 0.04 240)",
+                        }}
+                      >
+                        {p.price}
+                      </span>
+                      <span className="text-xs" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>
+                        Detail →
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -468,159 +405,139 @@ export default function Properties() {
       {selected && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "rgba(13,27,42,0.85)", backdropFilter: "blur(8px)" }}
-          onClick={() => setSelected(null)}
+          style={{ background: "rgba(13,27,42,0.85)", backdropFilter: "blur(4px)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) setSelected(null); }}
         >
           <div
-            className="relative bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+            style={{ background: "white" }}
           >
-            {/* Close */}
             <button
-              className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center transition-colors"
-              style={{ background: "rgba(13,27,42,0.1)" }}
               onClick={() => setSelected(null)}
+              className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center transition-colors"
+              style={{ background: "rgba(13,27,42,0.08)" }}
             >
-              <X size={16} />
+              <X size={18} style={{ color: "oklch(0.18 0.04 240)" }} />
             </button>
 
-            {/* Image */}
             <div className="relative" style={{ height: "280px" }}>
               <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
               <div
-                className="absolute bottom-0 left-0 right-0 h-24"
-                style={{ background: "linear-gradient(to top, rgba(255,255,255,1), transparent)" }}
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(to top, rgba(13,27,42,0.6) 0%, transparent 60%)" }}
               />
-              <div
-                className="absolute top-4 left-4 px-3 py-1 text-xs font-semibold"
-                style={{
-                  background: selected.status === "Prodej" ? "oklch(0.18 0.04 240)" : "oklch(0.55 0.15 145)",
-                  color: "white",
-                  fontFamily: "'Outfit', sans-serif",
-                }}
-              >
-                {selected.status}
+              <div className="absolute bottom-4 left-5">
+                <div
+                  className="inline-block px-2.5 py-1 text-xs font-semibold mb-2"
+                  style={{
+                    background: selected.status === "Prodej" ? "oklch(0.18 0.04 240)" : "oklch(0.45 0.18 260)",
+                    color: "white",
+                    fontFamily: "'Outfit', sans-serif",
+                  }}
+                >
+                  {selected.status}
+                </div>
+                <h2
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 700,
+                    fontSize: "1.8rem",
+                    color: "white",
+                    lineHeight: 1.15,
+                  }}
+                >
+                  {selected.title}
+                </h2>
               </div>
             </div>
 
-            {/* Content */}
-            <div className="p-8 pt-4">
-              <div
-                className="flex items-center gap-1 text-xs mb-2"
-                style={{ color: "oklch(0.52 0.02 240)", fontFamily: "'Outfit', sans-serif" }}
-              >
-                <MapPin size={12} />
-                {selected.location}
-              </div>
-              <h2
-                className="mb-2"
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  fontSize: "1.8rem",
-                  color: "oklch(0.18 0.04 240)",
-                  lineHeight: 1.2,
-                }}
-              >
-                {selected.title}
-              </h2>
-              <div
-                className="text-2xl font-bold mb-6"
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontWeight: 700,
-                  color: "oklch(0.72 0.12 75)",
-                }}
-              >
-                {selected.price}
+            <div className="p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <MapPin size={15} style={{ color: "oklch(0.72 0.12 75)" }} />
+                <span style={{ color: "oklch(0.4 0.015 65)", fontFamily: "'Outfit', sans-serif" }}>
+                  {selected.location}
+                </span>
               </div>
 
-              {/* Stats */}
-              <div
-                className="grid grid-cols-3 gap-4 mb-6 py-4"
-                style={{ borderTop: "1px solid oklch(0.88 0.01 240)", borderBottom: "1px solid oklch(0.88 0.01 240)" }}
-              >
-                <div className="text-center">
-                  <div
-                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: "1.5rem", color: "oklch(0.18 0.04 240)" }}
-                  >
-                    {selected.area}
+              <div className="flex flex-wrap gap-6 mb-5 pb-5" style={{ borderBottom: "1px solid oklch(0.92 0.004 286.32)" }}>
+                <div>
+                  <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Cena</div>
+                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: "1.5rem", color: "oklch(0.18 0.04 240)" }}>
+                    {selected.price}
                   </div>
-                  <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: "0.7rem", color: "oklch(0.52 0.02 240)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    m² plochy
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Plocha</div>
+                  <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}>
+                    {selected.area} m²
                   </div>
                 </div>
                 {selected.rooms > 0 && (
-                  <div className="text-center">
-                    <div
-                      style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: "1.5rem", color: "oklch(0.18 0.04 240)" }}
-                    >
+                  <div>
+                    <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Pokoje</div>
+                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}>
                       {selected.rooms}
-                    </div>
-                    <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: "0.7rem", color: "oklch(0.52 0.02 240)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                      Pokoje
                     </div>
                   </div>
                 )}
-                <div className="text-center">
-                  <div
-                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: "1.5rem", color: "oklch(0.18 0.04 240)" }}
-                  >
+                <div>
+                  <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Typ</div>
+                  <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}>
                     {selected.type}
-                  </div>
-                  <div style={{ fontFamily: "'Outfit', sans-serif", fontSize: "0.7rem", color: "oklch(0.52 0.02 240)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                    Typ
                   </div>
                 </div>
               </div>
 
-              <p
-                className="mb-6 leading-relaxed"
-                style={{ color: "oklch(0.38 0.02 240)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}
-              >
+              <p className="mb-6 leading-relaxed" style={{ color: "oklch(0.4 0.015 65)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}>
                 {selected.description}
               </p>
 
-              {/* Agent */}
               <div
-                className="p-4 mb-6"
-                style={{ background: "oklch(0.97 0.005 240)", border: "1px solid oklch(0.88 0.01 240)" }}
+                className="p-4"
+                style={{ background: "oklch(0.97 0.005 240)", border: "1px solid oklch(0.92 0.004 286.32)" }}
               >
-                <div
-                  className="text-xs font-medium tracking-widest uppercase mb-1"
-                  style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
-                >
-                  Odpovědný makléř
+                <div className="text-xs uppercase tracking-wide mb-3" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>
+                  Kontaktní makléř
                 </div>
-                <div
-                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}
-                >
+                <div className="font-semibold mb-3" style={{ color: "oklch(0.18 0.04 240)", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem" }}>
                   {selected.agent}
                 </div>
-                <a
-                  href={`tel:${selected.agentPhone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-2 mt-1 text-sm hover:opacity-80 transition-opacity"
-                  style={{ color: "oklch(0.38 0.02 240)", fontFamily: "'Outfit', sans-serif" }}
-                >
-                  <Phone size={13} style={{ color: "oklch(0.72 0.12 75)" }} />
-                  {selected.agentPhone}
-                </a>
-              </div>
-
-              <div className="flex gap-3">
-                <a
-                  href={`tel:${selected.agentPhone.replace(/\s/g, "")}`}
-                  className="btn-gold flex-1 text-center"
-                  style={{ display: "block", textDecoration: "none" }}
-                >
-                  Zavolat makléři
-                </a>
-                <button
-                  className="btn-outline-gold flex-1"
-                  onClick={() => setSelected(null)}
-                >
-                  Zavřít
-                </button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href={`tel:${selected.agentPhone.replace(/\s/g, "")}`}
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all"
+                    style={{
+                      background: "oklch(0.18 0.04 240)",
+                      color: "white",
+                      fontFamily: "'Outfit', sans-serif",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "oklch(0.72 0.12 75)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "oklch(0.18 0.04 240)")}
+                  >
+                    <Phone size={14} />
+                    {selected.agentPhone}
+                  </a>
+                  <a
+                    href={`mailto:${AGENT_EMAILS[selected.agent] ?? "info@rpluspreal.cz"}`}
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all"
+                    style={{
+                      border: "1px solid oklch(0.18 0.04 240)",
+                      color: "oklch(0.18 0.04 240)",
+                      fontFamily: "'Outfit', sans-serif",
+                    }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "oklch(0.18 0.04 240)";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+                      (e.currentTarget as HTMLAnchorElement).style.color = "oklch(0.18 0.04 240)";
+                    }}
+                  >
+                    <Mail size={14} />
+                    {AGENT_EMAILS[selected.agent] ?? "info@rpluspreal.cz"}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -631,7 +548,7 @@ export default function Properties() {
       <footer
         className="py-8 mt-8"
         style={{
-          background: "oklch(0.18 0.04 240)",
+          background: "oklch(0.13 0.03 240)",
           borderTop: "1px solid rgba(212,168,67,0.15)",
         }}
       >
@@ -650,14 +567,6 @@ export default function Properties() {
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
             © 2025 RplusP real s.r.o. | Všechna práva vyhrazena
           </p>
-          <Link href="/">
-            <button
-              className="text-xs hover:text-white transition-colors"
-              style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit', sans-serif" }}
-            >
-              ← Zpět na hlavní stránku
-            </button>
-          </Link>
         </div>
       </footer>
     </div>
