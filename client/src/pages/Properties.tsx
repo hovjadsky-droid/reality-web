@@ -11,7 +11,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import {
-  MapPin,
   BedDouble,
   Square,
   ChevronLeft,
@@ -19,9 +18,10 @@ import {
   Search,
   SlidersHorizontal,
   X,
-  Mail,
+  MapPin,
 } from "lucide-react";
-import { useProperties, type Property } from "@/hooks/useProperties";
+import { useProperties } from "@/hooks/useProperties";
+import { useLocation } from "wouter";
 
 const PROPERTIES_HERO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663470378961/YJPp8FK3JAb3Rh4YUTwsLp/properties-hero-bMLcieVpT2hZgyG84PeEP3.webp";
 
@@ -43,11 +43,11 @@ const STATUSES = ["Vše", "Prodej", "Pronájem"];
 
 export default function Properties() {
   const properties = useProperties();
+  const [, navigate] = useLocation();
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("Vše");
   const [statusFilter, setStatusFilter] = useState("Vše");
   const [showFilters, setShowFilters] = useState(false);
-  const [selected, setSelected] = useState<Property | null>(null);
 
   const filtered = properties.filter((p) => {
     const matchSearch =
@@ -291,7 +291,7 @@ export default function Properties() {
                     border: "1px solid oklch(0.92 0.004 286.32)",
                     boxShadow: "0 2px 8px rgba(13,27,42,0.04)",
                   }}
-                  onClick={() => setSelected(p)}
+                  onClick={() => navigate(`/nemovitosti/${p.id}`)}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(13,27,42,0.12)";
                     (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(212,168,67,0.4)";
@@ -401,148 +401,7 @@ export default function Properties() {
         </div>
       </section>
 
-      {/* ── DETAIL MODAL ── */}
-      {selected && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: "rgba(13,27,42,0.85)", backdropFilter: "blur(4px)" }}
-          onClick={(e) => { if (e.target === e.currentTarget) setSelected(null); }}
-        >
-          <div
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto"
-            style={{ background: "white" }}
-          >
-            <button
-              onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center transition-colors"
-              style={{ background: "rgba(13,27,42,0.08)" }}
-            >
-              <X size={18} style={{ color: "oklch(0.18 0.04 240)" }} />
-            </button>
 
-            <div className="relative" style={{ height: "280px" }}>
-              <img src={selected.image} alt={selected.title} className="w-full h-full object-cover" />
-              <div
-                className="absolute inset-0"
-                style={{ background: "linear-gradient(to top, rgba(13,27,42,0.6) 0%, transparent 60%)" }}
-              />
-              <div className="absolute bottom-4 left-5">
-                <div
-                  className="inline-block px-2.5 py-1 text-xs font-semibold mb-2"
-                  style={{
-                    background: selected.status === "Prodej" ? "oklch(0.18 0.04 240)" : "oklch(0.45 0.18 260)",
-                    color: "white",
-                    fontFamily: "'Outfit', sans-serif",
-                  }}
-                >
-                  {selected.status}
-                </div>
-                <h2
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 700,
-                    fontSize: "1.8rem",
-                    color: "white",
-                    lineHeight: 1.15,
-                  }}
-                >
-                  {selected.title}
-                </h2>
-              </div>
-            </div>
-
-            <div className="p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <MapPin size={15} style={{ color: "oklch(0.72 0.12 75)" }} />
-                <span style={{ color: "oklch(0.4 0.015 65)", fontFamily: "'Outfit', sans-serif" }}>
-                  {selected.location}
-                </span>
-              </div>
-
-              <div className="flex flex-wrap gap-6 mb-5 pb-5" style={{ borderBottom: "1px solid oklch(0.92 0.004 286.32)" }}>
-                <div>
-                  <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Cena</div>
-                  <div style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: "1.5rem", color: "oklch(0.18 0.04 240)" }}>
-                    {selected.price}
-                  </div>
-                </div>
-                <div>
-                  <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Plocha</div>
-                  <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}>
-                    {selected.area} m²
-                  </div>
-                </div>
-                {selected.rooms > 0 && (
-                  <div>
-                    <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Pokoje</div>
-                    <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}>
-                      {selected.rooms}
-                    </div>
-                  </div>
-                )}
-                <div>
-                  <div className="text-xs uppercase tracking-wide mb-1" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>Typ</div>
-                  <div style={{ fontFamily: "'Outfit', sans-serif", fontWeight: 600, fontSize: "1.1rem", color: "oklch(0.18 0.04 240)" }}>
-                    {selected.type}
-                  </div>
-                </div>
-              </div>
-
-              <p className="mb-6 leading-relaxed" style={{ color: "oklch(0.4 0.015 65)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}>
-                {selected.description}
-              </p>
-
-              <div
-                className="p-4"
-                style={{ background: "oklch(0.97 0.005 240)", border: "1px solid oklch(0.92 0.004 286.32)" }}
-              >
-                <div className="text-xs uppercase tracking-wide mb-3" style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}>
-                  Kontaktní makléř
-                </div>
-                <div className="font-semibold mb-3" style={{ color: "oklch(0.18 0.04 240)", fontFamily: "'Cormorant Garamond', serif", fontSize: "1.1rem" }}>
-                  {selected.agent}
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a
-                    href={`tel:${selected.agentPhone.replace(/\s/g, "")}`}
-                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all"
-                    style={{
-                      background: "oklch(0.18 0.04 240)",
-                      color: "white",
-                      fontFamily: "'Outfit', sans-serif",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.background = "oklch(0.72 0.12 75)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.background = "oklch(0.18 0.04 240)")}
-                  >
-                    <Phone size={14} />
-                    {selected.agentPhone}
-                  </a>
-                  <a
-                    href={`mailto:${AGENT_EMAILS[selected.agent] ?? "info@rpluspreal.cz"}`}
-                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium transition-all"
-                    style={{
-                      border: "1px solid oklch(0.18 0.04 240)",
-                      color: "oklch(0.18 0.04 240)",
-                      fontFamily: "'Outfit', sans-serif",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = "oklch(0.18 0.04 240)";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "white";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
-                      (e.currentTarget as HTMLAnchorElement).style.color = "oklch(0.18 0.04 240)";
-                    }}
-                  >
-                    <Mail size={14} />
-                    {AGENT_EMAILS[selected.agent] ?? "info@rpluspreal.cz"}
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* ── FOOTER ── */}
       <footer

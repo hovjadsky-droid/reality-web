@@ -39,8 +39,26 @@ collections:
           - { label: "Prodáno", value: "Prodáno" }
       - { label: "Plocha (m²)", name: "area", widget: "number", value_type: "int", hint: "Celková plocha v m²" }
       - { label: "Počet pokojů", name: "rooms", widget: "number", value_type: "int", required: false }
-      - { label: "Popis", name: "description", widget: "text", hint: "Krátký popis nemovitosti" }
-      - { label: "Fotografie", name: "image", widget: "image", required: false, hint: "Hlavní fotografie nemovitosti" }
+      - { label: "Krátký popis", name: "description", widget: "text", hint: "Krátký popis pro kartu nemovitosti (1–2 věty)" }
+      - { label: "Hlavní fotografie", name: "image", widget: "image", required: false, hint: "Hlavní fotografie nemovitosti (zobrazuje se v kartě)" }
+      - label: "Fotogalerie"
+        name: "gallery"
+        widget: "list"
+        required: false
+        hint: "Přidejte další fotografie do galerie na detailní stránce"
+        field:
+          label: "Fotografie"
+          name: "photo"
+          widget: "image"
+      - label: "Vybavení a vlastnosti"
+        name: "features"
+        widget: "list"
+        required: false
+        hint: "Přidejte položky vybavení (každá na nový řádek)"
+        field:
+          label: "Položka"
+          name: "item"
+          widget: "string"
       - label: "Štítek (badge)"
         name: "badge"
         widget: "select"
@@ -59,3 +77,8 @@ collections:
           - { label: "Ing. Vít Hovjadský", value: "Ing. Vít Hovjadský" }
           - { label: "Ing. Petra Koudelková", value: "Ing. Petra Koudelková" }
       - { label: "Pořadí zobrazení", name: "order", widget: "number", value_type: "int", default: 99, required: false }
+      - label: "Podrobný popis"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "Podrobný popis nemovitosti zobrazený na detailní stránce. Podporuje formátování textu."
