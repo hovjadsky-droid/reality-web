@@ -65,7 +65,7 @@ const AGENTS = [
     phone: "+420 603 442 763",
     email: "hovjadsky@gmail.com",
     specialization: "Prodej a pronájem nemovitostí",
-    avatar: ,
+    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Ing. Petra Koudelková",
@@ -249,7 +249,7 @@ export default function Home() {
               className="animate-fade-in-up animate-delay-300 mb-10 text-white/75 leading-relaxed"
               style={{ fontFamily: "'Outfit', sans-serif", fontSize: "1.1rem", maxWidth: "520px" }}
             >
-              Pomáháme lidem najít jejich vysněný domov i zhodnotit nemovitostní investice.
+              Pomáháme lidem najít jejich vysněný domov.
             </p>
             <div className="animate-fade-in-up animate-delay-400 flex flex-wrap gap-4">
               <Link href="/nemovitosti">
