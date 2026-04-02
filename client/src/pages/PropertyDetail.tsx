@@ -23,6 +23,7 @@ import {
   Send,
 } from "lucide-react";
 import { useProperty } from "@/hooks/useProperties";
+import ShareBar from "@/components/ShareBar";
 
 const AGENT_EMAILS: Record<string, string> = {
   "Ing. Vít Hovjadský": "hovjadsky@gmail.com",
@@ -483,6 +484,21 @@ export default function PropertyDetail() {
                   {AGENT_EMAILS[property.agent] ?? "info@rpluspreal.cz"}
                 </a>
               </div>
+            </div>
+
+            {/* Share bar */}
+            <div
+              className="p-6"
+              style={{
+                background: "white",
+                border: "1px solid oklch(0.92 0.004 286.32)",
+              }}
+            >
+              <ShareBar
+                title={property.title}
+                url={typeof window !== "undefined" ? window.location.href : ""}
+                description={property.description}
+              />
             </div>
 
             {/* Contact form */}
