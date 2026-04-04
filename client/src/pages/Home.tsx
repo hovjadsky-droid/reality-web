@@ -65,7 +65,7 @@ const AGENTS = [
     phone: "+420 603 442 763",
     email: "hovjadsky@gmail.com",
     specialization: "Prodej a pronájem nemovitostí",
-    avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
+    //avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
   },
   {
     name: "Ing. Petra Koudelková",
