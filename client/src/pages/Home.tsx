@@ -694,11 +694,11 @@ export default function Home() {
                       E-mail
                     </div>
                     <a
-                      href="mailto:info@rpluspreal.cz"
+                      href="mailto:hovjadsky@gmail.com"
                       style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}
                       className="hover:text-white transition-colors"
                     >
-                      info@rpluspreal.cz
+                      hovjadsky@gmail.com
                     </a>
                   </div>
                 </div>
