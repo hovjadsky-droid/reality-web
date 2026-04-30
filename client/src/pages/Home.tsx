@@ -243,9 +243,6 @@ export default function Home() {
               className="animate-fade-in-up animate-delay-300 mb-10 text-white/75 leading-relaxed"
               style={{ fontFamily: "'Outfit', sans-serif", fontSize: "1.1rem", maxWidth: "520px" }}
             >
-<<<<<<< Updated upstream
-              Pomáháme lidem najít jejich vysněný domov.
-=======
               Pomáháme lidem najít jejich vysněný domov i zhodnotit nemovitostní investice.
             </p>
             <div className="animate-fade-in-up animate-delay-400 flex flex-wrap gap-4">
