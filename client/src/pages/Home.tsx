@@ -73,7 +73,7 @@ const AGENTS = [
     phone: "+420 704 361 302",
     email: "koudelkova@gmail.com",
     specialization: "Prodej a pronájem nemovitostí",
-    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
+    //avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
   },
 ];
 
@@ -494,17 +494,6 @@ export default function Home() {
                     animationDelay: `${i * 0.1}s`,
                   }}
                 >
-                  <div className="relative overflow-hidden" style={{ height: "220px" }}>
-                    <img
-                      src={agent.avatar}
-                      alt={agent.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-16"
-                      style={{ background: "linear-gradient(to top, rgba(13,27,42,0.6), transparent)" }}
-                    />
-                  </div>
                   <div className="p-5">
                     <div
                       className="text-xs font-medium tracking-widest uppercase mb-1"
