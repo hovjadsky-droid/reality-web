@@ -8,7 +8,7 @@
 import { useMemo } from "react";
 
 // Vite glob import – načte všechny .md soubory jako raw string
-const markdownFiles = import.meta.glob("../content/nemovitosti/*.md", {
+const markdownFiles = import.meta.glob("../../../src/content/nemovitosti/*.md", {
   query: "?raw",
   import: "default",
   eager: true,
