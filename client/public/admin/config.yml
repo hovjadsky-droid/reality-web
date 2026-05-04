@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "public/images/properties"
+media_folder: "client/public/images/properties"
 public_folder: "/images/properties"
 
 locale: cs
@@ -14,7 +14,7 @@ collections:
   - name: "nemovitosti"
     label: "Nemovitosti"
     label_singular: "Nemovitost"
-    folder: "src/content/nemovitosti"
+    folder: "client/src/content/nemovitosti"
     create: true
     delete: true
     slug: "{{slug}}"
