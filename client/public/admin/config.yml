@@ -14,7 +14,7 @@ collections:
   - name: "nemovitosti"
     label: "Nemovitosti"
     label_singular: "Nemovitost"
-    folder: "client/src/content/nemovitosti"
+    folder: "src/content/nemovitosti"
     create: true
     delete: true
     slug: "{{slug}}"
