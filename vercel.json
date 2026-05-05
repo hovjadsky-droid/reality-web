@@ -1,7 +1,13 @@
 {
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist/public",
+  "functions": {
+    "api/auth.js": {
+      "runtime": "edge"
+    }
+  },
   "rewrites": [
+    { "source": "/api/auth", "destination": "/api/auth" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
