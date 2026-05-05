@@ -7,7 +7,6 @@ export default async function handler(req, res) {
     const params = new URLSearchParams({
       client_id,
       scope: "repo,user",
-      redirect_uri: `https://${req.headers.host}/api/auth`,
     });
     return res.redirect(`https://github.com/login/oauth/authorize?${params}`);
   }
@@ -25,22 +24,28 @@ export default async function handler(req, res) {
     const data = await response.json();
     const token = data.access_token;
 
-    const script = `
-      <script>
-        (function() {
-          function receiveMessage(e) {
-            console.log("receiveMessage %o", e);
-            window.opener.postMessage(
-              'authorization:github:success:${JSON.stringify({ token, provider: "github" })}',
-              e.origin
-            );
-          }
-          window.addEventListener("message", receiveMessage, false);
-          window.opener.postMessage("authorizing:github", "*");
-        })()
-      </script>`;
+    if (!token) {
+      return res.status(400).send("No token received: " + JSON.stringify(data));
+    }
 
-    return res.send(script);
+    const message = "authorization:github:success:" + JSON.stringify({ token, provider: "github" });
+    const safeMessage = JSON.stringify(message);
+
+    return res.send(`<!DOCTYPE html>
+<html>
+<body>
+<script>
+  (function() {
+    var message = ${safeMessage};
+    function receiveMessage(e) {
+      window.opener.postMessage(message, e.origin);
+    }
+    window.addEventListener("message", receiveMessage, false);
+    window.opener.postMessage("authorizing:github", "*");
+  })();
+</script>
+</body>
+</html>`);
   } catch (err) {
     return res.status(500).send("OAuth error: " + err.message);
   }
