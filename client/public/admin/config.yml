@@ -2,7 +2,7 @@ backend:
   name: github
   repo: hovjadsky-droid/reality-web
   branch: main
-  base_url: https://netlify-cms-github-oauth-provider-opal.vercel.app
+  base_url: https://rpluspreal.cz
 
 media_folder: "client/public/images/properties"
 public_folder: "/images/properties"
