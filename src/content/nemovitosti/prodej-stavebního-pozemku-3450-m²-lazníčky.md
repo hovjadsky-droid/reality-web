@@ -7,15 +7,15 @@ status: Prodej
 area: 2941
 description: Rozlehlá, svažitá parcela o ploše 2941 m², s nádherným výhledem,
   která se nacházejí v klidné části obce Lazníčky.
-image: /images/properties/20251215_135401.jpg
+image: /images/properties/pozemek_laznicky/20251215_135401.jpg
 gallery:
-  - /images/properties/20251215_135549.jpg
-  - /images/properties/20251215_134702.jpg
-  - /images/properties/20251215_135344.jpg
-  - /images/properties/20251215_135340.jpg
-  - /images/properties/20251215_135605.jpg
-  - /images/properties/ÚP mapa.jpg
-  - /images/properties/Mapa.png
+  - /images/properties/pozemek_laznicky/20251215_135549.jpg
+  - /images/properties/pozemek_laznicky/20251215_134702.jpg
+  - /images/properties/pozemek_laznicky/20251215_135344.jpg
+  - /images/properties/pozemek_laznicky/20251215_135340.jpg
+  - /images/properties/pozemek_laznicky/20251215_135605.jpg
+  - /images/properties/pozemek_laznicky/ÚP mapa.jpg
+  - /images/properties/pozemek_laznicky/Mapa.png
 badge: Investiční příležitost
 agent: Ing. Vít Hovjadský
 order: 19
