@@ -1,8 +1,5 @@
-export const config = { runtime: "edge" };
-
-export default async function handler(req) {
-  const url = new URL(req.url);
-  const code = url.searchParams.get("code");
+export default async function handler(req, res) {
+  const { code } = req.query;
   const client_id = process.env.OAUTH_CLIENT_ID;
   const client_secret = process.env.OAUTH_CLIENT_SECRET;
 
@@ -11,7 +8,7 @@ export default async function handler(req) {
       client_id,
       scope: "repo,user",
     });
-    return Response.redirect(`https://github.com/login/oauth/authorize?${params}`, 302);
+    return res.redirect(`https://github.com/login/oauth/authorize?${params}`);
   }
 
   try {
@@ -28,13 +25,13 @@ export default async function handler(req) {
     const token = data.access_token;
 
     if (!token) {
-      return new Response("No token received: " + JSON.stringify(data), { status: 400 });
+      return res.status(400).send("No token received: " + JSON.stringify(data));
     }
 
     const message = "authorization:github:success:" + JSON.stringify({ token, provider: "github" });
     const safeMessage = JSON.stringify(message);
 
-    const html = `<!DOCTYPE html>
+    return res.send(`<!DOCTYPE html>
 <html>
 <body>
 <script>
@@ -48,12 +45,8 @@ export default async function handler(req) {
   })();
 </script>
 </body>
-</html>`;
-
-    return new Response(html, {
-      headers: { "Content-Type": "text/html" },
-    });
+</html>`);
   } catch (err) {
-    return new Response("OAuth error: " + err.message, { status: 500 });
+    return res.status(500).send("OAuth error: " + err.message);
   }
 }
