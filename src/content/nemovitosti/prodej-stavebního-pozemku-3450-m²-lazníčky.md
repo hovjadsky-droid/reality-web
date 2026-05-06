@@ -1,5 +1,5 @@
 ---
-title: Prodej stavebního pozemku 3450 m² Lazníčky
+title: Prodej stavebního pozemku 2941 m² Lazníčky
 location: Lazníčky
 price: "1590000"
 type: Pozemky
@@ -10,7 +10,10 @@ description: Rozlehlá, svažitá parcela o ploše 2941 m², s nádherným výhl
 image: /images/properties/20251215_135401.jpg
 gallery:
   - /images/properties/20251215_135549.jpg
-  - /images/properties/20251215_135401.jpg
+  - /images/properties/20251215_135702.jpg
+  - /images/properties/20251215_135344.jpg
+  - /images/properties/20251215_135340.jpg
+  - /images/properties/20251215_135605.jpg
 badge: Investiční příležitost
 agent: Ing. Vít Hovjadský
 order: 19
