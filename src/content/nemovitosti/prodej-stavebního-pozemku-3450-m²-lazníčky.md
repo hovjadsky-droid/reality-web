@@ -10,7 +10,7 @@ description: Rozlehlá, svažitá parcela o ploše 2941 m², s nádherným výhl
 image: /images/properties/20251215_135401.jpg
 gallery:
   - /images/properties/20251215_135549.jpg
-  - /images/properties/20251215_135702.jpg
+  - /images/properties/20251215_134702.jpg
   - /images/properties/20251215_135344.jpg
   - /images/properties/20251215_135340.jpg
   - /images/properties/20251215_135605.jpg
