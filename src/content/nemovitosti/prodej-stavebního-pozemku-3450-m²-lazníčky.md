@@ -14,6 +14,8 @@ gallery:
   - /images/properties/20251215_135344.jpg
   - /images/properties/20251215_135340.jpg
   - /images/properties/20251215_135605.jpg
+  - /images/properties/ÚP mapa.jpg
+  - /images/properties/Mapa.png
 badge: Investiční příležitost
 agent: Ing. Vít Hovjadský
 order: 19
