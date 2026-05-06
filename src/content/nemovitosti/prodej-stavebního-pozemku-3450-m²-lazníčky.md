@@ -21,7 +21,7 @@ order: 19
 Nabízíme k prodeji unikátní nemovitost s obrovským potenciálem. Rozlehlá, svažitá parcela o ploše 2941 m², s nádherným výhledem, která nabízí dostatek prostoru pro ambiciózní stavební projekt nebo rozdělení,  která se nacházejí v klidné části obce Lazníčky.
 
 Územní plán a možnosti využití:
-Dle platného územního plánu jsou obě parcely vedeny jako plochy smíšené obytné. To majiteli poskytuje širokou variabilitu využití – od klasického rodinného bydlení až po kombinaci bydlení s drobným podnikáním či službami.
+Dle platného územního plánu je parcela vedena jako plocha smíšená obytná. To majiteli poskytuje širokou variabilitu využití – od klasického rodinného bydlení až po kombinaci bydlení s drobným podnikáním či službami.
 
 Inženýrské sítě:
 Lokalita je plně vybavená pro okamžité napojení budoucích staveb. Přímo na hranici pozemku jsou k dispozici:
