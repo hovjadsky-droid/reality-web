@@ -31,7 +31,7 @@ Průjezd: Dům je rozdělen průjezdem, který zajišťuje pohodlný vjezd autem
 Zázemí: Na dvoře se nachází hospodářská budova, ideální jako dílna, sklad nebo prostor pro chov.
 
 Inženýrské sítě a přístup:
-Všechny sítě (elektřina, obecní vodovod, plyn, kanalizace) jsou k dispozici na hranici pozemku.
+Všechny sítě (elektřina, obecní vodovod, plyn, kanalizace) jsou k dispozici na hranici pozemku, dům je připojen na elektřinu a plyn.
 
 Přístup je zajištěn po zpevněné obecní komunikaci.
 
