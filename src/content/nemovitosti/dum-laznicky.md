@@ -10,6 +10,13 @@ description: Rodinný dům k rekonstrukci,
 image: /images/properties/dum_laznicky/20251215_141031.jpg
 gallery:
   - /images/properties/dum_laznicky/20251215_141057.jpg
+  - /images/properties/dum_laznicky/20251215_134849.jpg
+  - /images/properties/dum_laznicky/20251215_132219.jpg
+  - /images/properties/dum_laznicky/20251215_132306.jpg
+  - /images/properties/dum_laznicky/20251215_132309.jpg
+  - /images/properties/dum_laznicky/20251215_133152.jpg
+  - /images/properties/dum_laznicky/20251215_133011.jpg
+  - /images/properties/dum_laznicky/20251215_132825.jpg
   
 badge: K rekonstrukci
 agent: Ing. Vít Hovjadský
