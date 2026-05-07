@@ -11,34 +11,40 @@ image: /images/properties/dum_laznicky/20251215_141031.jpg
 gallery:
   - /images/properties/dum_laznicky/20251215_141057.jpg
   
-badge: Investiční příležitost
+badge: K rekonstrukci
 agent: Ing. Vít Hovjadský
 order: 19
 ---
 
 
-Územní plán a možnosti využití:
-Dle platného územního plánu je parcela vedena jako plocha smíšená obytná. To majiteli poskytuje širokou variabilitu využití – od klasického rodinného bydlení až po kombinaci bydlení s drobným podnikáním či službami.
+Hledáte rodinné bydlení s velkorysým prostorem nebo kombinaci bydlení a podnikání? Nabízíme k prodeji cihlový rodinný dům s dispozicí 4+1 v obci Lázníčky s pozemkem 509 m².
 
-Inženýrské sítě:
-Lokalita je plně vybavená pro okamžité napojení budoucích staveb. Přímo na hranici pozemku jsou k dispozici:
-Elektřina
-Obecní vodovod
-Plynovod
-Kanalizace
+Rodinný dům se dvorem (509 m²)
+Cihlový dům o zastavěné ploše 169 m² je určen k celkové rekonstrukci, což novému majiteli umožňuje přizpůsobit si interiér moderním standardům.
 
-Přístup a lokalita:
-K oběma částem pozemku je zajištěn bezproblémový příjezd po zpevněné obecní komunikaci. Svažitý terén pozemku je jeho velkou předností – umožňuje architektovi pracovat s kaskádovitým členěním zahrady a zaručuje budoucím obyvatelům soukromí a daleké výhledy do okolní krajiny.
+Dispozice: 4+1 s praktickým rozložením.
 
-Pozemek se nachází v lokalitě, která kombinuje klid venkova s rychlým napojením na klíčové tahy:
-Dálnice: Nájezd na dálnici je vzdálen pouhých 3,5 km.
-Přerov: Dojezdová vzdálenost 15 km (cca 15 min).
-Olomouc: Dojezdová vzdálenost 25 km (cca 20 min).
+Konstrukce: Cihlová stavba.
+Střecha: Krytina z pálených tašek.
+Průjezd: Dům je rozdělen průjezdem, který zajišťuje pohodlný vjezd autem přímo do dvora.
 
-Proč investovat právě zde?
-Díky celkové rozloze přes 550 m² a zařazení do smíšené obytné plochy se nabízí široké spektrum využití – od stavby luxusního sídla s rozlehlým pozemkem až po developerský záměr rozdělení na více jednotek.
+Zázemí: Na dvoře se nachází hospodářská budova, ideální jako dílna, sklad nebo prostor pro chov.
 
+Inženýrské sítě a přístup:
+Všechny sítě (elektřina, obecní vodovod, plyn, kanalizace) jsou k dispozici na hranici pozemku.
 
-Cena: 590 000 Kč (Včetně právního servisu a provize)
+Přístup je zajištěn po zpevněné obecní komunikaci.
 
-Chcete si tento prostor s velkým potenciálem prohlédnout osobně? Zavolejte mi a domluvíme si termín prohlídky.
+Vynikající dopravní dostupnost:
+Lokalita vyniká strategickou polohou pro dojíždění:
+
+Nájezd na dálnici: 3,5 km
+Přerov: 15 km (cca 15 min)
+Olomouc: 25 km (cca 20 min)
+
+Shrnutí:
+Tato nemovitost je ideální pro někoho, kdo hledá dům k rekonstrukci, nebo pro investora, který využije potenciál nemovitosti v žádané dojezdové vzdálenosti od krajského města.
+
+Cena: 590 000 Kč
+
+Chcete vidět potenciál tohoto místa naživo? Domluvte si prohlídku. Těším se na viděnou!
