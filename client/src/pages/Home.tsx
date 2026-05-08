@@ -6,6 +6,7 @@
  */
 
 import { useEffect, useRef, useState } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { Link } from "wouter";
 import {
   Phone,
@@ -113,6 +114,7 @@ function AnimatedSection({ children, className = "" }: { children: React.ReactNo
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [formState, handleFormSubmit] = useForm("xykonejo");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -719,13 +721,24 @@ export default function Home() {
 
             {/* Contact form */}
             <AnimatedSection>
+              {formState.succeeded ? (
+                <div
+                  className="p-8 flex flex-col items-center justify-center text-center"
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", minHeight: "400px" }}
+                >
+                  <div style={{ color: "oklch(0.72 0.12 75)", fontSize: "3rem", marginBottom: "1rem" }}>✓</div>
+                  <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.5rem", color: "white", marginBottom: "0.5rem" }}>
+                    Zpráva odeslána!
+                  </h3>
+                  <p style={{ color: "rgba(255,255,255,0.6)", fontFamily: "'Outfit', sans-serif" }}>
+                    Děkujeme za zprávu. Ozveme se vám co nejdříve.
+                  </p>
+                </div>
+              ) : (
               <form
                 className="p-8"
                 style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  alert("Děkujeme za zprávu! Ozveme se vám co nejdříve.");
-                }}
+                onSubmit={handleFormSubmit}
               >
                 <h3
                   className="mb-6"
@@ -749,6 +762,7 @@ export default function Home() {
                     </label>
                     <input
                       type="text"
+                      name="jmeno"
                       placeholder="Jan Novák"
                       required
                       className="w-full px-4 py-3 text-sm outline-none transition-all duration-200"
@@ -771,6 +785,7 @@ export default function Home() {
                     </label>
                     <input
                       type="tel"
+                      name="telefon"
                       placeholder="+420 xxx xxx xxx"
                       className="w-full px-4 py-3 text-sm outline-none transition-all duration-200"
                       style={{
@@ -794,6 +809,7 @@ export default function Home() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="jan@example.cz"
                     required
                     className="w-full px-4 py-3 text-sm outline-none transition-all duration-200"
@@ -806,6 +822,7 @@ export default function Home() {
                     onFocus={(e) => (e.target.style.borderColor = "oklch(0.72 0.12 75)")}
                     onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.12)")}
                   />
+                  <ValidationError field="email" errors={formState.errors} className="text-red-400 text-xs mt-1" />
                 </div>
 
                 <div className="mb-6">
@@ -816,6 +833,7 @@ export default function Home() {
                     Zpráva
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
                     placeholder="Jak vám můžeme pomoci?"
                     required
@@ -829,12 +847,14 @@ export default function Home() {
                     onFocus={(e) => (e.target.style.borderColor = "oklch(0.72 0.12 75)")}
                     onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.12)")}
                   />
+                  <ValidationError field="message" errors={formState.errors} className="text-red-400 text-xs mt-1" />
                 </div>
 
-                <button type="submit" className="btn-gold w-full">
-                  Odeslat zprávu
+                <button type="submit" className="btn-gold w-full" disabled={formState.submitting}>
+                  {formState.submitting ? "Odesílám..." : "Odeslat zprávu"}
                 </button>
               </form>
+              )}
             </AnimatedSection>
           </div>
         </div>
