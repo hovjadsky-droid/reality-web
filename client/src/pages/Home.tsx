@@ -1,5 +1,5 @@
 /**
- * Home.tsx – Landing page pro RplusPreal
+ * Home.tsx – Landing page pro Hovjadský Reality
  * Design: Modern Geometric Prestige
  * Colors: Navy #0D1B2A (oklch 0.18 0.04 240) | Gold #D4A843 (oklch 0.72 0.12 75)
  * Fonts: Cormorant Garamond (headings) | Outfit (body)
@@ -64,7 +64,7 @@ const AGENTS = [
     name: "Ing. Vít Hovjadský",
     role: "Realitní makléř",
     phone: "+420 603 442 763",
-    email: "hovjadsky@gmail.com",
+    email: "vhovjadsky@seznam.cz",
     specialization: "Prodej a pronájem nemovitostí",
     //avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
   },
@@ -149,7 +149,7 @@ export default function Home() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "1rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.2rem", color: "white", letterSpacing: "0.05em" }}>
-              RplusP real s.r.o.
+              Hovjadský Reality
             </span>
           </div>
 
@@ -232,7 +232,7 @@ export default function Home() {
                 className="inline-block text-xs font-medium tracking-widest uppercase mb-6"
                 style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
               >
-                Realitní kancelář Frýdek-Místek
+                Realitní kancelář Český Těšín
               </span>
             </div>
             <h1
@@ -337,7 +337,7 @@ export default function Home() {
                 <span style={{ fontStyle: "italic", fontWeight: 400 }}>s osobním přístupem</span>
               </h2>
               <p className="mb-4 leading-relaxed" style={{ color: "oklch(0.38 0.02 240)", fontSize: "1rem" }}>
-                RplusP real s.r.o. je realitní kancelář sídlící ve Frýdku-Místku. Specializujeme se na prodej, koupi a pronájem rezidenčních i komerčních nemovitostí v regionu Moravskoslezského kraje.
+                Hovjadský Reality je realitní kancelář sídlící v Českém Těšíně. Specializujeme se na prodej, koupi a pronájem rezidenčních i komerčních nemovitostí v regionu Moravskoslezského kraje.
               </p>
               <p className="mb-8 leading-relaxed" style={{ color: "oklch(0.38 0.02 240)", fontSize: "1rem" }}>
                 Náš tým zkušených makléřů vám poskytne individuální péči a odborné poradenství v každém kroku realitní transakce. Věříme, že každý klient si zaslouží transparentní a profesionální přístup.
@@ -354,7 +354,7 @@ export default function Home() {
               >
                 <img
                   src={TEAM_BG}
-                  alt="Kancelář RplusP real s.r.o."
+                  alt="Kancelář Hovjadský Reality"
                   className="w-full h-80 object-cover"
                 />
                 <div
@@ -661,7 +661,7 @@ export default function Home() {
                     </div>
                     <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}>
                       Potoční 1091<br />
-                      Frýdek-Místek 738 01
+                      Čapkova 9/4, Český Těšín 737 01
                     </p>
                   </div>
                 </div>
@@ -708,11 +708,11 @@ export default function Home() {
                       E-mail
                     </div>
                     <a
-                      href="mailto:hovjadsky@gmail.com"
+                      href="mailto:vhovjadsky@seznam.cz"
                       style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}
                       className="hover:text-white transition-colors"
                     >
-                      hovjadsky@gmail.com
+                      vhovjadsky@seznam.cz
                     </a>
                   </div>
                 </div>
@@ -877,11 +877,11 @@ export default function Home() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.8rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1rem", color: "white" }}>
-              RplusP real s.r.o.
+              Hovjadský Reality
             </span>
           </div>
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
-            © 2025 RplusP real s.r.o. | Všechna práva vyhrazena
+            © 2025 Hovjadský Reality | Všechna práva vyhrazena
           </p>
           <div className="flex gap-6">
             {["Ochrana osobních údajů", "Podmínky"].map((item) => (
