@@ -66,21 +66,12 @@ const AGENTS = [
     phone: "+420 603 442 763",
     email: "vhovjadsky@seznam.cz",
     specialization: "Prodej a pronájem nemovitostí",
-    //avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face",
-  },
-  {
-    name: "Ing. Petra Koudelková",
-    role: "Realitní makléřka",
-    phone: "+420 704 361 302",
-    email: "koudelkova@gmail.com",
-    specialization: "Prodej a pronájem nemovitostí",
-    //avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop&crop=face",
   },
 ];
 
 const STATS = [
   { value: "98 %", label: "Spokojených klientů" },
-  { value: "2", label: "Zkušení makléři" },
+  { value: "10+", label: "Let zkušeností" },
   { value: "100 %", label: "Transparentní jednání" },
   { value: "24/7", label: "Dostupnost pro klienty" },
 ];
