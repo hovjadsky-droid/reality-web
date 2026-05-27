@@ -223,7 +223,7 @@ export default function Home() {
                 className="inline-block text-xs font-medium tracking-widest uppercase mb-6"
                 style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
               >
-                Realitní kancelář Český Těšín
+                Realitní kancelář
               </span>
             </div>
             <h1
@@ -651,8 +651,7 @@ export default function Home() {
                       Adresa
                     </div>
                     <p style={{ color: "rgba(255,255,255,0.8)", fontFamily: "'Outfit', sans-serif", fontSize: "0.95rem" }}>
-                      Potoční 1091<br />
-                      Čapkova 9/4, Český Těšín 737 01
+                    Čapkova 9/4, Český Těšín 737 01
                     </p>
                   </div>
                 </div>
