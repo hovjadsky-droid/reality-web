@@ -237,13 +237,13 @@ export default function Home() {
               }}
             >
               Váš domov.<br />
-              <span style={{ color: "oklch(0.72 0.12 75)", fontStyle: "italic" }}>Naše vášeň.</span>
+              <span style={{ color: "oklch(0.72 0.12 75)", fontStyle: "italic" }}>Moje práce.</span>
             </h1>
             <p
               className="animate-fade-in-up animate-delay-300 mb-10 text-white/75 leading-relaxed"
               style={{ fontFamily: "'Outfit', sans-serif", fontSize: "1.1rem", maxWidth: "520px" }}
             >
-              Pomáháme lidem najít jejich vysněný domov i zhodnotit nemovitostní investice.
+              Nezávislý realitní makléř s osobním přístupem. Provázím vás celým procesem koupě, prodeje i pronájmu — bez zbytečných prostředníků, s plnou péčí od první schůzky až po předání klíčů.
             </p>
             <div className="animate-fade-in-up animate-delay-400 flex flex-wrap gap-4">
               <Link href="/nemovitosti">
@@ -324,14 +324,14 @@ export default function Home() {
                   lineHeight: 1.15,
                 }}
               >
-                Realitní kancelář<br />
-                <span style={{ fontStyle: "italic", fontWeight: 400 }}>s osobním přístupem</span>
+                Nezávislý makléř<br />
+                <span style={{ fontStyle: "italic", fontWeight: 400 }}>na vaší straně</span>
               </h2>
               <p className="mb-4 leading-relaxed" style={{ color: "oklch(0.38 0.02 240)", fontSize: "1rem" }}>
-                Hovjadský Reality je realitní kancelář sídlící v Českém Těšíně. Specializujeme se na prodej, koupi a pronájem rezidenčních i komerčních nemovitostí v regionu Moravskoslezského kraje.
+                Jsem nezávislý realitní makléř působící v Českém Těšíně a okolí. Nezastupuji žádnou velkou kancelář — pracuji přímo pro vás, bez provizí skrytých v ceně a bez tlaku na rychlý prodej za každou cenu.
               </p>
               <p className="mb-8 leading-relaxed" style={{ color: "oklch(0.38 0.02 240)", fontSize: "1rem" }}>
-                Náš tým zkušených makléřů vám poskytne individuální péči a odborné poradenství v každém kroku realitní transakce. Věříme, že každý klient si zaslouží transparentní a profesionální přístup.
+                Každý případ řeším osobně — od první konzultace přes přípravu smluv až po předání klíčů. Díky tomu máte vždy přehled o tom, co se děje, a můžete počítat s rychlou a přímou komunikací.
               </p>
               <button className="btn-gold" onClick={() => scrollTo("services")}>
                 Naše služby
@@ -563,7 +563,7 @@ export default function Home() {
                 color: "oklch(0.18 0.04 240)",
               }}
             >
-              Hledáte svou vysněnou nemovitost?
+              Prodáváte, kupujete nebo pronajímáte?
             </h2>
             <p
               className="mb-8 mx-auto"
@@ -574,7 +574,7 @@ export default function Home() {
                 maxWidth: "500px",
               }}
             >
-              Prohlédněte si naši aktuální nabídku nebo nás kontaktujte pro individuální konzultaci zdarma.
+              Ozvi se mi — první konzultace je zdarma a bez závazků. Společně najdeme nejlepší řešení pro vaši situaci.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/nemovitosti">
