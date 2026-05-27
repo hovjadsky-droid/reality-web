@@ -146,7 +146,7 @@ export default function Home() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
-            {[["O nás", "about"], ["Služby", "services"], ["Tým", "team"], ["Kontakt", "contact"]].map(([label, id]) => (
+            {[["O nás", "about"], ["Služby", "services"], ["Makléř", "team"], ["Kontakt", "contact"]].map(([label, id]) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
@@ -177,7 +177,7 @@ export default function Home() {
         {menuOpen && (
           <div style={{ background: "oklch(0.18 0.04 240)", borderTop: "1px solid rgba(212,168,67,0.2)" }}>
             <div className="container py-4 flex flex-col gap-4">
-              {[["O nás", "about"], ["Služby", "services"], ["Tým", "team"], ["Kontakt", "contact"]].map(([label, id]) => (
+              {[["O nás", "about"], ["Služby", "services"], ["Makléř", "team"], ["Kontakt", "contact"]].map(([label, id]) => (
                 <button
                   key={id}
                   onClick={() => scrollTo(id)}
@@ -471,7 +471,7 @@ export default function Home() {
               className="block text-xs font-medium tracking-widest uppercase mb-3"
               style={{ color: "oklch(0.72 0.12 75)", fontFamily: "'Outfit', sans-serif" }}
             >
-              Náš tým
+              Váš makléř
             </span>
             <h2
               style={{
@@ -482,8 +482,8 @@ export default function Home() {
                 lineHeight: 1.15,
               }}
             >
-              Zkušení makléři<br />
-              <span style={{ fontStyle: "italic", fontWeight: 400 }}>pro vaše potřeby</span>
+              Jeden člověk.<br />
+              <span style={{ fontStyle: "italic", fontWeight: 400 }}>plná odpovědnost</span>
             </h2>
           </AnimatedSection>
 
