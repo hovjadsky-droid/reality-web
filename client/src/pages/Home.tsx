@@ -24,7 +24,6 @@ import {
 } from "lucide-react";
 
 const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663470378961/YJPp8FK3JAb3Rh4YUTwsLp/hero-bg-RveV5qTzEJjpdfmtAgjd5t.webp";
-const TEAM_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663470378961/YJPp8FK3JAb3Rh4YUTwsLp/team-bg-QhRNeFfhTHs5p4ZxQ29Z8Z.webp";
 
 const SERVICES = [
   {
@@ -305,7 +304,7 @@ export default function Home() {
       {/* ── ABOUT ── */}
       <section id="about" className="py-24" style={{ background: "oklch(0.97 0.005 240)" }}>
         <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="max-w-3xl mx-auto">
             <AnimatedSection>
               <span className="gold-line mb-4" />
               <span
@@ -338,51 +337,6 @@ export default function Home() {
               </button>
             </AnimatedSection>
 
-            <AnimatedSection className="relative">
-              <div
-                className="relative overflow-hidden"
-                style={{ borderRadius: "2px" }}
-              >
-                <img
-                  src={TEAM_BG}
-                  alt="Kancelář Hovjadský - Reality"
-                  className="w-full h-80 object-cover"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{ background: "linear-gradient(135deg, rgba(13,27,42,0.3) 0%, transparent 60%)" }}
-                />
-              </div>
-              {/* Floating badge */}
-              <div
-                className="absolute -bottom-4 -left-4 p-5 shadow-2xl"
-                style={{ background: "oklch(0.18 0.04 240)", minWidth: "160px" }}
-              >
-                <div
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontWeight: 700,
-                    fontSize: "2.2rem",
-                    color: "oklch(0.72 0.12 75)",
-                    lineHeight: 1,
-                  }}
-                >
-                  98 %
-                </div>
-                <div
-                  style={{
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: "0.7rem",
-                    color: "white",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.08em",
-                    marginTop: "0.25rem",
-                  }}
-                >
-                  Spokojených klientů
-                </div>
-              </div>
-            </AnimatedSection>
           </div>
         </div>
       </section>
