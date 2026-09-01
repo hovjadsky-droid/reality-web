@@ -123,7 +123,7 @@ export default function PropertyDetail() {
             </div>
             <Link href="/">
               <span className="cursor-pointer" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.1rem", color: "white" }}>
-                RplusP real s.r.o.
+                Hovjadský - Reality
               </span>
             </Link>
           </div>
@@ -454,7 +454,7 @@ export default function PropertyDetail() {
                 {property.agent}
               </div>
               <div className="mb-5" style={{ color: "rgba(255,255,255,0.5)", fontFamily: "'Outfit', sans-serif", fontSize: "0.85rem" }}>
-                Realitní makléř · RplusP real s.r.o.
+                Realitní makléř · Hovjadský - Reality
               </div>
               <div className="flex flex-col gap-3">
                 <a
@@ -698,11 +698,11 @@ export default function PropertyDetail() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.8rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1rem", color: "white" }}>
-              RplusP real s.r.o.
+              Hovjadský - Reality
             </span>
           </div>
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
-            © 2025 RplusP real s.r.o. | Všechna práva vyhrazena
+            © 2025 Hovjadský - Reality | Všechna práva vyhrazena
           </p>
         </div>
       </footer>

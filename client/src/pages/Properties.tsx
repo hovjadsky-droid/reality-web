@@ -84,7 +84,7 @@ export default function Properties() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.9rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.1rem", color: "white" }}>
-              RplusP real s.r.o.
+              Hovjadský - Reality
             </span>
           </div>
           <a
@@ -420,11 +420,11 @@ export default function Properties() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.8rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1rem", color: "white" }}>
-              RplusP real s.r.o.
+              Hovjadský - Reality
             </span>
           </div>
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
-            © 2025 RplusP real s.r.o. | Všechna práva vyhrazena
+            © 2025 Hovjadský - Reality | Všechna práva vyhrazena
           </p>
         </div>
       </footer>

@@ -1,5 +1,5 @@
 /**
- * Home.tsx – Landing page pro Hovjadský Reality
+ * Home.tsx – Landing page pro Hovjadský - Reality
  * Design: Modern Geometric Prestige
  * Colors: Navy #0D1B2A (oklch 0.18 0.04 240) | Gold #D4A843 (oklch 0.72 0.12 75)
  * Fonts: Cormorant Garamond (headings) | Outfit (body)
@@ -140,7 +140,7 @@ export default function Home() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "1rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1.2rem", color: "white", letterSpacing: "0.05em" }}>
-              Hovjadský Reality
+              Hovjadský - Reality
             </span>
           </div>
 
@@ -345,7 +345,7 @@ export default function Home() {
               >
                 <img
                   src={TEAM_BG}
-                  alt="Kancelář Hovjadský Reality"
+                  alt="Kancelář Hovjadský - Reality"
                   className="w-full h-80 object-cover"
                 />
                 <div
@@ -867,11 +867,11 @@ export default function Home() {
               <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "oklch(0.18 0.04 240)", fontSize: "0.8rem" }}>R</span>
             </div>
             <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, fontSize: "1rem", color: "white" }}>
-              Hovjadský Reality
+              Hovjadský - Reality
             </span>
           </div>
           <p style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Outfit', sans-serif", fontSize: "0.8rem" }}>
-            © 2025 Hovjadský Reality | Všechna práva vyhrazena
+            © 2025 Hovjadský - Reality | Všechna práva vyhrazena
           </p>
           <div className="flex gap-6">
             {["Ochrana osobních údajů", "Podmínky"].map((item) => (
